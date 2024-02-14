@@ -68,11 +68,11 @@ function App() {
         <div className='absolute bottom-5'>
           <img src={MochaClapping}/>
         </div>
-        {/* <div className='absolute top-5 right-4'>
-            <p className='text-white'>Tony has been notified. He will reach out shortly.</p>
-        </div> */}
+        <div className='relative top-5 left-4'>
+            <p className='text-white animate-pulse'>Tony has been notified. </p>
+        </div> 
         <div className='flex items-center justify-center p-10'>
-          <div className='lg:text-[10rem] sm:text-[200px] text-white animate-bounce'> YAY!
+          <div className='lg:text-[10rem] sm:text-[2rem] text-white animate-bounce'> YAY!
           </div>
         </div>
         <div className='flex items-center justify-center p-10'>
