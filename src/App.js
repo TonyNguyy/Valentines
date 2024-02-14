@@ -1,23 +1,114 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Mocha from "../src/assets/annoyingmocha.gif"
+import MochaValentines from "../src/assets/MochaValentines.gif"
+import MochaClapping from "../src/assets/MochaClapping.gif"
+import Crying from "../src/assets/crying.gif"
+import Face from "../src/assets/Face.gif"
+import Yass from "../src/assets/YASS.gif"
+import Couch from "../src/assets/Couch.gif"
+import Dance from "../src/assets/Dance.gif"
 
 function App() {
+  const [yesPressed, setYesPressed] = useState(false)
+  const [noCount, setNoCount]= useState(0);
+
+
+  const phrases = [
+    "No",
+    "Are you sure?",
+    "Like really sure?",
+    "Ya Right, click the Yes",
+    "K, one more time",
+    "Yes",
+  ]
+
+  const Title=[
+    "Will you be my Valentines?",
+    "NO?!?",
+    "You're not funny, try again",
+    "Still trying huh",
+    "NAHHHHH",
+    "hehe."
+  ]
+  
+  const images= [
+    MochaValentines,
+    Mocha,
+    Crying,
+    Face,
+    Couch,
+    Dance,
+  ]
+
+  function noText(){
+   return phrases[Math.min(noCount, phrases.length -1)] 
+  }
+
+  function noTitle(){
+    return Title[Math.min(noCount, phrases.length -1)]
+  }
+  function noImages(){
+    return images[Math.min(noCount, phrases.length -1)]
+  }
+
+  function onClickNo(){
+    if(noCount < 5){
+      setNoCount(noCount + 1)
+    }else{
+      setYesPressed(true);
+    }
+   
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bg-red-300 w-screen h-screen'>
+      {yesPressed ? (
+        <>  
+        <div className='absolute bottom-5 left-4'>
+          <img src={MochaClapping}/>
+        </div>
+        <div className='absolute top-5 right-4'>
+            <p className='text-white'>Tony has been notified. He will reach out shortly.</p>
+        </div>
+        <div className='flex items-center justify-center p-10'>
+          <div className='text-[10rem] text-white animate-bounce'> YAY!
+          </div>
+        </div>
+        <div className='flex items-center justify-center p-10'>
+         <img src={Yass}/>
+        </div>  
+        <div className='flex items-center justify-center p-4'>
+         <h2 className='text-[5rem] text-white'>EXCELLENT CHOICE
+          </h2> 
+        </div>
+        
+        </>
+      ):(
+        <>  
+        <div className='flex items-center justify-center p-10'>
+           <h1 className='text-white font-bold text-[2rem]'>
+            {noTitle()}
+          </h1>
+        </div>
+        <div className='flex items-center justify-center p-10'>
+        <img src={noImages()} className='w-[20%] h-[20%]'/>
+        </div>
+     
+        <div className='flex gap-8 items-center justify-center'>
+          <button className='bg-red-500 p-5 rounded-lg hover:scale-[1.1] text-white hover:bg-red-700'
+          onClick={()=> setYesPressed(true)}>Yes</button>
+          <button className='bg-red-500 p-5 rounded-lg hover:scale-[1.1] text-white hover:bg-red-700'
+        onClick={onClickNo} >{noText()}</button>
+        </div>
+
+        </>
+      )
+
+      }
+      
+
+
     </div>
   );
 }
