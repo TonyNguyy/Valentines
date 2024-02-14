@@ -64,35 +64,35 @@ function App() {
   return (
     <div className='bg-red-300 w-screen h-screen'>
       {yesPressed ? (
-        <>  
-        <div className='absolute bottom-5 left-4'>
+        <div className='w-screen h-screen'>  
+        <div className='absolute bottom-5'>
           <img src={MochaClapping}/>
         </div>
-        <div className='absolute top-5 right-4'>
+        {/* <div className='absolute top-5 right-4'>
             <p className='text-white'>Tony has been notified. He will reach out shortly.</p>
-        </div>
+        </div> */}
         <div className='flex items-center justify-center p-10'>
-          <div className='text-[10rem] text-white animate-bounce'> YAY!
+          <div className='lg:text-[10rem] sm:text-[200px] text-white animate-bounce'> YAY!
           </div>
         </div>
         <div className='flex items-center justify-center p-10'>
          <img src={Yass}/>
         </div>  
         <div className='flex items-center justify-center p-4'>
-         <h2 className='text-[5rem] text-white'>EXCELLENT CHOICE
+         <h2 className='lg:text-[5rem] sm:text-[1rem] text-white'>EXCELLENT CHOICE
           </h2> 
         </div>
         
-        </>
+        </div>
       ):(
-        <>  
-        <div className='flex items-center justify-center p-10'>
-           <h1 className='text-white font-bold text-[2rem]'>
+        <div className='w-screen h-screen '>  
+        <div className='flex items-center justify-center p-5 '>
+           <h1 className='text-white font-bold sm:text-[1.5rem] lg:text-[5rem]'>
             {noTitle()}
           </h1>
         </div>
         <div className='flex items-center justify-center p-10'>
-        <img src={noImages()} className='w-[20%] h-[20%]'/>
+        <img src={noImages()} className='w-[25%] h-[25%]'/>
         </div>
      
         <div className='flex gap-8 items-center justify-center'>
@@ -102,7 +102,7 @@ function App() {
         onClick={onClickNo} >{noText()}</button>
         </div>
 
-        </>
+        </div>
       )
 
       }
